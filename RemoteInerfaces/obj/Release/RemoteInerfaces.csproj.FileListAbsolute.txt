@@ -1,0 +1,5 @@
+C:\Users\jacoub\Desktop\SmartHome\RemoteInerfaces\bin\Release\RemoteInerfaces.dll
+C:\Users\jacoub\Desktop\SmartHome\RemoteInerfaces\bin\Release\RemoteInerfaces.pdb
+C:\Users\jacoub\Desktop\SmartHome\RemoteInerfaces\obj\Release\RemoteInerfaces.csproj.CoreCompileInputs.cache
+C:\Users\jacoub\Desktop\SmartHome\RemoteInerfaces\obj\Release\RemoteInerfaces.dll
+C:\Users\jacoub\Desktop\SmartHome\RemoteInerfaces\obj\Release\RemoteInerfaces.pdb

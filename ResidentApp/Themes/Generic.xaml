@@ -1,0 +1,139 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ResidentApp.UserControls">
+
+
+
+
+    <Style TargetType="{x:Type local:Slider}">
+        <Setter Property="Grid.Row" Value="1" />
+        <Setter Property="Grid.Column" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Slider}">
+
+                    <Border
+                            Margin="30,0,0,0"
+                            Background="#000000"
+                            CornerRadius="25">
+                        <Border  CornerRadius="25">
+
+                            <Border.Background>
+                                <ImageBrush
+                                        ImageSource="{Binding Path=ImageSourceAsBytes, RelativeSource={RelativeSource TemplatedParent} }" 
+                                        Opacity="0.6"
+                                        Stretch="Fill"/>
+                            </Border.Background>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <!--Add Button-->
+
+                                <!--<local:ButtonAdd RoomID="{TemplateBinding RoomID}" Margin="40,40,0,0" HorizontalAlignment="Left" Caption="Add New Device" />-->
+
+
+
+                                <!--Titles-->
+
+                                <StackPanel
+                                        Margin="0,40,0,0"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Center">
+                                    <TextBlock
+                                            FontSize="32"
+                                            Foreground="#ffffff"
+                                            TextAlignment="Center">
+                                            <Run Text="32" /><Run FontSize="26" FontWeight="Thin">c</Run>
+                                    </TextBlock>
+                                    <TextBlock
+                                            FontSize="12"
+                                            Foreground="#ffffff"
+                                            Text="Celcious"
+                                            TextAlignment="Center" />
+                                    <TextBlock
+                                            Margin="0,15,0,10"
+                                            FontSize="22"
+                                            Foreground="#ffffff"
+                                            Text="{TemplateBinding  ImageSource}"
+                                            TextAlignment="Center" />
+                                    <TextBlock
+                                            FontSize="36"
+                                            FontWeight="Bold"
+                                            Foreground="#ffffff"
+                                            Text="{TemplateBinding Title}"
+                                            TextAlignment="Center" />
+                                </StackPanel>
+
+                                <!--Panels-->
+
+                                <Grid
+                                        Grid.Row="1"
+                                        Margin="0,0,0,30"
+                                        HorizontalAlignment="Center">
+
+                                    <!--Cards-->
+
+                                    <ItemsControl
+                                            Name="roomDevicesList"
+                                            HorizontalContentAlignment="Stretch"
+                                            ItemsSource="{TemplateBinding RoomDevicesList}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+                                                </Grid>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemContainerStyle>
+                                            <Style TargetType="ContentPresenter">
+                                                <Setter Property="Grid.Column" Value="{Binding ColumnGrid}" />
+                                                <Setter Property="Grid.Row" Value="{Binding RowGrid}" />
+                                            </Style>
+                                        </ItemsControl.ItemContainerStyle>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <local:Card
+                                                        Title="{Binding Title}"
+                                                        Card_ID="{Binding Device_ID}"
+                                                        Margin="12,10,12,0"
+                                                        ImageOff="{Binding ImageOffSource}"
+                                                        ImageOn="{Binding ImageOnSource}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Grid>
+                            </Grid>
+
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type local:ComboBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ComboBox}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
